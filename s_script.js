@@ -1,19 +1,25 @@
 document.addEventListener("DOMContentLoaded",()=>{
-    const squares=document.querySelectorAll(".grid div")
+    let grid=document.querySelector('.grid')
+    let squares=document.querySelectorAll(".grid div")
     const scoreDisplay=document.querySelector("span")
     const startBtn=document.querySelector(".start")
 
-    const width=10
+    //console.log(window.screen.width);
+    if(window.screen.width < 450){
+        console.log(grid);
+        console.log("hi");
+    }
+
+    const width=20
     let currentIndex=0  //first div in the grid
     let appleIndex=0    //first div in grid
     let currentSnake=[2,1,0]    //the div grid being 2(for the HEAD),and 0 being the end
                                 //(TAIL,with all 1's being the body from now on)
     let direction=1
     let score=0
-    let speed=0.9
+    let speed=0.7
     let intervelTime=0
     let intervel=0
-
 
     //  to start,and restart the game
     function startGame(){
@@ -24,7 +30,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         randomApple()    
         direction=1
         scoreDisplay.innerText=score
-        intervelTime=1000
+        intervelTime=150
         currentSnake=[2,1,0]
         currentIndex=0
         currentSnake.forEach(index => squares[index].classList.add("snake"))
