@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
     <style>
         *{
@@ -70,8 +71,37 @@
             box-shadow: 0px 2px 6px 1px black;
             cursor: pointer;
         }
+        .handles{
+            width: 100%;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .handles .fa{
+            color: #231f20;
+            font-size: 2rem;
+            font-weight: bolder;
+            padding: 5px 15px;
+            background-color: #bccce6;
+            border-radius: 10px;
+            margin-right: 5px;
+            box-shadow: 0px 0px 4px .5px rgba(0, 0, 0,.3);
+        }
 
-        @media screen and (max-width:450px) {
+
+        @media screen and (min-width: 600px) {
+            .grid{
+                width: 400px ;
+                height: 400px;
+            }
+            .grid div{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        @media screen and (max-device-width: 550px) { 
             .grid{
                 width: 300px ;
                 height: 300px;
@@ -82,14 +112,15 @@
             }
         }
 
-        @media screen and (max-width:600px) {
+
+        @media only screen and (max-device-width: 400px) {
             .grid{
-                width: 400px ;
-                height: 400px;
+                width: 200px ;
+                height: 200px;
             }
             .grid div{
-                width: 20px;
-                height: 20px;
+                width: 10px;
+                height: 10px;
             }
         }
     </style>
@@ -500,6 +531,17 @@
           <div></div>
           <div></div>
         </div>  
+
+        <div class="handles">
+            <div class="verticle">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            <div class="horizontal">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+            </div>
+        </div>
 
         <button class='start'>Start / Restart</button>
 

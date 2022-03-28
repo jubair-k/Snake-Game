@@ -4,12 +4,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     const scoreDisplay=document.querySelector("span")
     const startBtn=document.querySelector(".start")
 
-    //console.log(window.screen.width);
-    if(window.screen.width < 450){
-        console.log(grid);
-        console.log("hi");
-    }
-
     const width=20
     let currentIndex=0  //first div in the grid
     let appleIndex=0    //first div in grid
@@ -99,12 +93,25 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     }
 
+    document.addEventListener('click',function(e){
+        squares[currentIndex].classList.remove('snake')
+
+        if(e.target.classList.contains('fa-angle-right')){
+            direction=1 //if we press the right arrow on our keybord,the snake right one
+        }
+        else if(e.target.classList.contains('fa-angle-up')){
+            direction=-width    //if we press the up arrow,the snake will go back then divs,appearing to go up
+        }
+        else if(e.target.classList.contains('fa-angle-left')){
+            direction= -1   //if we press left,snake will go left on divs
+        }
+        else if(e.target.classList.contains('fa-angle-down')){
+            direction=+width    //if we press down,the snake had will insantly appear
+        }
+    })
+
     document.addEventListener("keyup",control)
     startBtn.addEventListener("click",startGame)
-
-
-
-
 
 
 })
