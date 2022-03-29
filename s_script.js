@@ -110,6 +110,23 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     })
 
+    document.addEventListener('touchstart',function(e){
+        squares[currentIndex].classList.remove('snake')
+
+        if(e.target.classList.contains('fa-angle-right')){
+            direction=1 //if we press the right arrow on our keybord,the snake right one
+        }
+        else if(e.target.classList.contains('fa-angle-up')){
+            direction=-width    //if we press the up arrow,the snake will go back then divs,appearing to go up
+        }
+        else if(e.target.classList.contains('fa-angle-left')){
+            direction= -1   //if we press left,snake will go left on divs
+        }
+        else if(e.target.classList.contains('fa-angle-down')){
+            direction=+width    //if we press down,the snake had will insantly appear
+        }
+    },false)
+
     document.addEventListener("keyup",control)
     startBtn.addEventListener("click",startGame)
 
