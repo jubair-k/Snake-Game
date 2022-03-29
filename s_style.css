@@ -20,8 +20,8 @@
 }
 
 .grid{
-    width: 400px ;
-    height: 400px;
+    width: 500px ;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     background-color: #231f20;
@@ -29,9 +29,9 @@
     overflow: hidden;
 }
 .grid div{
-    width: 20px;
-    height: 20px;
-}
+    width: 25px;
+    height: 25px;
+}    
 .snake{
     background-color: #c2c2c2;
 }
@@ -64,7 +64,55 @@
     box-shadow: 0px 2px 6px 1px black;
     cursor: pointer;
 }
+.handles{
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.handles .fa{
+    color: #231f20;
+    font-size: 2rem;
+    font-weight: bolder;
+    padding: 5px 15px;
+    background-color: #bccce6;
+    border-radius: 10px;
+    margin-right: 5px;
+    box-shadow: 0px 0px 4px .5px rgba(0, 0, 0,.3);
+}
 
-@media screen and (min-width:450px) {
 
+@media screen and (min-width: 600px) {
+    .grid{
+        width: 400px ;
+        height: 400px;
+    }
+    .grid div{
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media screen and (max-device-width: 550px) { 
+    .grid{
+        width: 300px ;
+        height: 300px;
+    }
+    .grid div{
+        width: 15px;
+        height: 15px;
+    }
+}
+
+
+@media only screen and (max-device-width: 400px) {
+    .grid{
+        width: 200px ;
+        height: 200px;
+    }
+    .grid div{
+        width: 10px;
+        height: 10px;
+    }
 }
