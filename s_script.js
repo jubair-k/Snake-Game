@@ -2,7 +2,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     let grid=document.querySelector('.grid')
     let squares=document.querySelectorAll(".grid div")
     const scoreDisplay=document.querySelector("span")
-    const startBtn=document.querySelector(".start")
+    const startBtn=document.querySelector(".start");
+    const closepop=document.querySelector('.fa-times');
+    const popmessage=document.getElementById('popmessage');
+
+    message=setTimeout(() => {
+        popmessage.remove();
+    }, 5000);
+
 
     const width=20
     let currentIndex=0  //first div in the grid
@@ -14,6 +21,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     let speed=0.7
     let intervelTime=0
     let intervel=0
+
+
 
     //  to start,and restart the game
     function startGame(){
@@ -125,7 +134,11 @@ document.addEventListener("DOMContentLoaded",()=>{
         else if(e.target.classList.contains('fa-angle-down')){
             direction=+width    //if we press down,the snake had will insantly appear
         }
-    },false)
+    },false);
+
+    closepop.addEventListener('click',function(){
+        popmessage.remove();
+    });
 
     document.addEventListener("keyup",control)
     startBtn.addEventListener("click",startGame)
