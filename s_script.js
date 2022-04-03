@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded",()=>{
                                 //(TAIL,with all 1's being the body from now on)
     let direction=1
     let score=0
-    let speed=0.7
+    let speed=0.5
     let intervelTime=0
     let intervel=0
 
@@ -60,27 +60,47 @@ document.addEventListener("DOMContentLoaded",()=>{
 
         //  deals with snake getting apple  //
         if(squares[currentSnake[0]].classList.contains("apple")){
-            squares[currentSnake[0]].classList.remove("apple")
-            squares[tail].classList.add("snake")
-            currentSnake.push(tail)
-            randomApple()
-            score++
-            scoreDisplay.textContent=score
-            clearInterval(intervel)
-            intervelTime=intervelTime + speed
-            intervel = setInterval(moveOutcomes,intervelTime)
+            squares[currentSnake[0]].classList.remove("apple");
+            squares[tail].classList.add("snake");
+            currentSnake.push(tail);
+            randomApple();
+            score++;
+            scoreDisplay.textContent=score;
+            clearInterval(intervel);
+            intervelTime=intervelTime - speed;
+            intervel = setInterval(moveOutcomes,intervelTime);
+        }
+        else if(squares[currentSnake[0]].classList.contains("booster")){
+            squares[currentSnake[0]].classList.remove("booster");
+            squares[tail].classList.add("snake");
+            currentSnake.push(tail);
+            randomApple();
+            score+=5;
+            scoreDisplay.textContent=score;
+            clearInterval(intervel);
+            intervelTime=intervelTime - 5;
+            intervel = setInterval(moveOutcomes,intervelTime);
+
         }
         squares[currentSnake[0]].classList.add("snake")
     }
 
 
+    let booster=0
     //generate new apple once apple is eatern
     function randomApple(){
         do{
             appleIndex=Math.floor(Math.random() * squares.length)
+            booster++
         }
-        while(squares[appleIndex].classList.contains("snake"))
-        squares[appleIndex].classList.add("apple")
+        while(squares[appleIndex].classList.contains("snake"));
+        if(booster==5){
+            squares[appleIndex].classList.add("booster");
+            booster=0;
+        }
+        else{
+            squares[appleIndex].classList.add("apple");
+        }
     }
 
 

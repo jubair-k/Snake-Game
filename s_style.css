@@ -16,8 +16,23 @@
     justify-content: center;
     margin: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
 }
+
+.score{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+}
+
+.score span{
+    color:#265db5;
+}
+
 
 .grid{
     width: 500px ;
@@ -34,19 +49,13 @@
 }    
 .snake{
     background-color: #c2c2c2;
+    border-radius: 3px;
 }
 .apple{
     background-color: #e66916;
+    border-radius: 50%;
 }
 
-.score{
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    margin: 20px 0;
-    color: rgb(74, 161, 237);
-}
 
 .start{
     display: block;
@@ -64,14 +73,19 @@
     box-shadow: 0px 2px 6px 1px black;
     cursor: pointer;
 }
+.start:hover{
+    background-color: #1b4ea0;
+}
+
 .handles{
     width: 100%;
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding:0px 20px;
 }
 .handles .fa{
+    display: inline-block;
     color: #231f20;
     font-size: 2rem;
     font-weight: bolder;
@@ -79,10 +93,19 @@
     background-color: #bccce6;
     border-radius: 10px;
     margin-right: 5px;
-    box-shadow: 0px 0px 4px .5px rgba(0, 0, 0,.3);
+    box-shadow: 0px 0px 4px .5px rgba(0, 0, 0,.5);
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+}
+.handles .fa:hover{
+    background-color: #b5c5df;
 }
 
 #popmessage{
+    position: absolute;
+    top: 0px;
+    left: 0px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -98,6 +121,11 @@
     cursor: pointer;
     font-size: 1.5rem;
 }
+.booster{
+    background-color: #f52318;
+    box-shadow: 0px 0px 6px 1px #f52318;
+    border-radius: 50%;
+}
 
 
 
@@ -110,6 +138,12 @@
     .grid div{
         width: 20px;
         height: 20px;
+    }
+    .handles{
+        justify-content: center;
+    }
+    .handles .fa{
+        margin-right: 10px;
     }
 }
 
